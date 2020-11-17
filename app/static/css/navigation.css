@@ -1,0 +1,141 @@
+/* navbar styles */
+
+nav.navbar {
+  padding: 15px 0;
+  background: white;
+  box-shadow: 0 10px 10px 0 rgba(76, 0, 130, 0.2);
+  z-index: 999;
+  position: relative;
+}
+
+.navbar-container {
+  position: relative;
+}
+
+a.navbar-logo {
+  font-size: 1.1em;
+  color: indigo;
+}
+
+a.navbar-logo-center {
+  display: inline-block;
+  margin-left: 50%;
+  transform: translateX(-50%);
+}
+
+ul.navbar-items {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+  text-align: right;
+}
+
+li.navbar-item {
+  display: inline-block;
+  margin-left: 10px;
+}
+
+li.navbar-item a {
+  color: #444444;
+  font-weight: 400;
+  text-decoration: none;
+}
+
+li.navbar-item:hover a {
+  color: black;
+}
+li.navbar-item.active a {
+  color: indigo;
+}
+
+.navbar-toggler {
+  display: none;
+  width: 25px;
+  height: 17px;
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.navbar-toggler span {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background: black;
+  transition: .2s;
+  transform-origin: center;
+}
+
+.navbar-toggler span:nth-child(2) {
+  opacity: 0;
+  transform: translateY(2.5px);
+}
+
+.navbar-toggler span:nth-child(3) {
+  transform: translateY(-2.5px);
+}
+
+.navbar-toggler.focussed span:nth-child(1) {
+  opacity: 0;
+  transform: translateY(5px) scale(.5);
+}
+
+.navbar-toggler.focussed span:nth-child(2) {
+  transform: translateY(2.5px) rotate(45deg);
+  opacity: 1;
+}
+
+.navbar-toggler.focussed span:nth-child(3) {
+  transform: translateY(-2.5px) rotate(-45deg);
+}
+
+.navbar-toggler.focussed span:nth-child(4) {
+  opacity: 0;
+  transform: translateY(-5px) scale(.5);
+}
+
+@media screen and (max-width: 600px) {
+  .navbar-toggler {
+    display: flex;
+  }
+  ul.navbar-items {
+    display: block;
+    position: absolute;
+    top: 41px;
+    left: 0;
+    right: 0;
+    transform: none;
+    background: white;
+    text-align: left;
+    margin: 0;
+    padding: 20px 20px 10px 20px;
+    border: solid lightgrey;
+    border-width: 1px 0 1px;
+    opacity: 0;
+    pointer-events: none;
+    box-shadow: 0 10px 10px 0 rgba(76, 0, 130, 0.2);
+    transition: .3s;
+  }
+  ul.navbar-items.visible {
+    opacity: 1;
+    pointer-events: auto;
+  }
+  li.navbar-item {
+    display: block;
+    width: 100%;
+    margin: 0;
+    margin-bottom: 10px;
+  }
+  li.navbar-item a {
+    display: block;
+    width: 100%;
+  }
+}

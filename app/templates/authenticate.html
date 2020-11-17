@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="nl">
+  <head>
+    <!-- required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    {% if description %}<meta name="description" content="{{ description }}">{% endif %}
+    {% if author %}<meta name="author" content="{{ author }}">{% endif %}
+
+    <!-- title -->
+    <title>{% if title %}{{ title }} - {% endif %}Learning Python</title>
+
+    <!-- links to css -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,400;0,600;1,400;1,600&display=swap">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/navigation.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/forms.css') }}">
+  </head>
+
+  <body>
+    <nav class="navbar">
+      <div class="container navbar-container">
+        <a href="{{ url_for('posts.index') }}" class="navbar-logo navbar-logo-center">Learning Python</a>
+      </div>
+    </nav>
+    
+    {% block content %}{% endblock %}
+
+    <script type="text/javascript" src="{{ url_for('static', filename='js/app.js') }}"></script>
+  </body>
+</html>

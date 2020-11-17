@@ -1,0 +1,56 @@
+/* styles for forms */
+
+form.page-form {
+  margin: 20px 0;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  width: 100%;
+  margin-bottom: 5px;
+  text-transform: uppercase;
+  color: #333333;
+}
+
+.form-group input {
+  display: block;
+  width: 100%;
+  padding: 10px 20px;
+  box-sizing: border-box;
+  border-radius: .5em;
+  border: 2px solid lightgrey;
+  font-size: 16px;
+  font-family: 'Poppins', sans-serif;
+  transition: .2s;
+  -webkit-appearance: none;
+}
+
+.form-group input:hover,
+.form-group input:focus {
+  border-color: rgb(107, 66, 135);
+}
+
+.form-group input:focus {
+  outline: 0;
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, .5);
+}
+
+.form-group input.incorrect-input {
+  border-color: red;
+}
+
+.form-group div.incorrect-input {
+  margin-top: 10px;
+  color: red;
+  text-transform: uppercase;
+  font-size: 15px;
+}
+
+input[type="submit"].button:hover,
+input[type="submit"].button:focus {
+  background: indigo;
+}
