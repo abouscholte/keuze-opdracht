@@ -1,4 +1,4 @@
-# Keuze opdracht
+# Keuze opdracht Python/Flask
 Python/Flask project voor keuze opdracht informatica 2020
 
 Om het project te starten, voer de volgende commando's uit:
