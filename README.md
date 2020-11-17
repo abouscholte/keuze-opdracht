@@ -1,10 +1,16 @@
 # Keuze opdracht
 Python/Flask project voor keuze opdracht informatica 2020
 
-Om project te starten, voer de volgende commando's uit:
-```zhs
+Om het project te starten, voer de volgende commando's uit:
+```bash
 pip install -r requirements.txt
 export FLASK_APP=app
 export FLASK_ENV=development
 flask run
+```
+
+Om ook browser-sync te starten, voer de volgende commando's uit:
+```bash
+npm install -g browser-sync
+browser-sync start --proxy http://127.0.0.1:5000/ --files="app/templates/**, app/static/**" --no-notify
 ```
