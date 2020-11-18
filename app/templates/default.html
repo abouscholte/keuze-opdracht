@@ -54,9 +54,7 @@
     {% with messages = get_flashed_messages() %}
       {% if messages %}
         {% for message in messages %}
-          <div class="alert" id="page-alert">{{ message }}
-            <span class="close" onclick="this.parentElement.classList.add('invisible');">&times;</span>
-          </div>
+          <div class="alert" id="page-alert">{{ message }}</div>
         {% endfor %}
       {% endif %}
     {% endwith %}

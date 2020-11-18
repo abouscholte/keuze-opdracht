@@ -90,7 +90,7 @@ def account():
     current_user.username = form.username.data
 
     db.session.commit()
-    flash('De gegevens van de gebruiker zijn aangepast')
+    flash('Jouw persoonlijke gegevens zijn aangepast')
     return redirect(url_for('auth.account'))
 
   return render_template('auth/account.html', form=form)

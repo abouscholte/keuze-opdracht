@@ -149,16 +149,17 @@ a:focus {
   transform: translateX(-50%);
   z-index: 999;
   width: 80%;
-  max-width: 400px;
+  max-width: 300px;
   background: white;
-  padding: 10px 70px 10px 30px;
-  border-radius: 2em;
-  box-shadow: 20px 20px 10px rgba(43, 23, 58, 0.4);
+  padding: 10px 30px;
+  border-radius: 100px;
+  box-shadow: 0 0 50px 20px rgba(43, 23, 58, 0.2);
   box-sizing: border-box;
-  color: #222;
+  color: #000;
   transition: .15s;
   pointer-events: auto;
   text-align: center;
+  font-size: 16px;
 }
 
 .alert.invisible {
@@ -166,18 +167,3 @@ a:focus {
   transform: translateX(-50%) scale(0.95);
   pointer-events: none;
 }
-
-.alert span.close {
-  position: absolute;
-  right: 20px;
-  top: 50%;
-  transform: translateY(-50%);
-  cursor: pointer;
-  font-size: 25px;
-  color: #444;
-}
-
-.alert span.close:hover,
-.alert span.close:focus {
-  color: black;
-} 

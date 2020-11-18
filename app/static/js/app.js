@@ -16,5 +16,5 @@ var alert = document.getElementById('page-alert');
 if (alert) {
   setTimeout(function() {
     alert.classList.add('invisible');
-  }, 15000);
+  }, 7500);
 }
