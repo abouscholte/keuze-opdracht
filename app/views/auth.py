@@ -5,14 +5,14 @@ from flask_login import login_user, logout_user, login_required, current_user
 
 from app import db
 from app.models import User
-from app.forms import LoginForm, SignUpForm
+from app.forms import LoginForm, SignUpForm, EditAccountForm
 
-auth = Blueprint('auth', __name__, url_prefix='/authenticate')
+auth = Blueprint('auth', __name__)
 
 
 # login route
 
-@auth.route('/login/', methods=['GET', 'POST'])
+@auth.route('/auth/login/', methods=['GET', 'POST'])
 def login():
   if current_user.is_authenticated:
     flash('U bent al ingelogd')
@@ -40,7 +40,7 @@ def login():
 
 # signup route
 
-@auth.route('/signup/', methods=['GET', 'POST'])
+@auth.route('/auth/signup/', methods=['GET', 'POST'])
 def signup():
   if current_user.is_authenticated:
     flash('U bent al ingelogd')
@@ -62,7 +62,7 @@ def signup():
 
 # logout route
 
-@auth.route('/logout/')
+@auth.route('/account/settings/logout/')
 @login_required
 def logout():
   logout_user()
@@ -70,9 +70,35 @@ def logout():
   return redirect(url_for('posts.index'))
 
 
+# account route
+
+@auth.route('/account/')
+def account_redirect():
+  return redirect(url_for('auth.account'))
+
+@auth.route('/account/settings/', methods=['GET', 'POST'])
+def account():
+  form = EditAccountForm()
+
+  if request.method == 'GET':
+    form.name.data = current_user.name
+    form.email.data = current_user.email
+    form.username.data = current_user.username
+  elif form.validate_on_submit():
+    current_user.name = form.name.data
+    current_user.email = form.email.data
+    current_user.username = form.username.data
+
+    db.session.commit()
+    flash('De gegevens van de gebruiker zijn aangepast')
+    return redirect(url_for('auth.account'))
+
+  return render_template('auth/account.html', form=form)
+
+
 # welcome user route
 
-@auth.route('/welcome/')
+@auth.route('/auth/signup/welcome/')
 @login_required
 def welcome_user():
   return render_template('auth/welcome-user.html')

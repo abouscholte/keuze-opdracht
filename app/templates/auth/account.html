@@ -1,0 +1,54 @@
+{% extends 'default.html' %}
+{% set title = current_user.name %}
+{% set current = 'account' %}
+{% set description = 'Wijzig je Learning Python account hier gemakkelijk' %}
+
+{% block content %}
+  <main id="account-block">
+    <div class="container container-small">
+      <h1>Welkom, {{ current_user.name }}</h1>
+      <p>Hier kan je je account bekijken, aanpassen en verwijderen.</p>
+    </div>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 319"><path fill="#f2f2f2" fill-opacity="1" d="M0,160L26.7,170.7C53.3,181,107,203,160,197.3C213.3,192,267,160,320,144C373.3,128,427,128,480,154.7C533.3,181,587,235,640,229.3C693.3,224,747,160,800,128C853.3,96,907,96,960,101.3C1013.3,107,1067,117,1120,144C1173.3,171,1227,213,1280,192C1333.3,171,1387,85,1413,42.7L1440,0L1440,320L1413.3,320C1386.7,320,1333,320,1280,320C1226.7,320,1173,320,1120,320C1066.7,320,1013,320,960,320C906.7,320,853,320,800,320C746.7,320,693,320,640,320C586.7,320,533,320,480,320C426.7,320,373,320,320,320C266.7,320,213,320,160,320C106.7,320,53,320,27,320L0,320Z"></path></svg>
+  </main>
+
+  <div class="container container-main">
+    <form method="POST" class="page-form">
+      {{ form.csrf_token }}
+      <div class="form-group">
+        {{ form.name.label }}
+        {% if form.name.errors %}
+          {{ form.name(class="incorrect-input") }}
+          {% for error in form.name.errors %}
+            <div class="incorrect-input">{{ error }}</div>
+          {% endfor %}
+        {% else %}
+          {{ form.name }}
+        {% endif %}
+      </div>
+      <div class="form-group">
+        {{ form.email.label }}
+        {% if form.email.errors %}
+          {{ form.email(class="incorrect-input") }}
+          {% for error in form.email.errors %}
+            <div class="incorrect-input">{{ error }}</div>
+          {% endfor %}
+        {% else %}
+          {{ form.email }}
+        {% endif %}
+      </div>
+      <div class="form-group">
+        {{ form.username.label }}
+        {% if form.username.errors %}
+          {{ form.username(class="incorrect-input") }}
+          {% for error in form.username.errors %}
+            <div class="incorrect-input">{{ error }}</div>
+          {% endfor %}
+        {% else %}
+          {{ form.username }}
+        {% endif %}
+      </div>
+      {{ form.submit(class="button") }}
+    </form>
+  </div>
+{% endblock %}

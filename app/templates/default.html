@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/navigation.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/forms.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/page-specific.css') }}">
   </head>
 
   <body>
@@ -28,6 +29,7 @@
 
     {% set user_items = [
       (url_for('posts.index'), 'home', 'Home'),
+      (url_for('auth.account'), 'account', current_user.name),
       (url_for('auth.logout'), 'logout', 'Log Uit')
     ] %}
     

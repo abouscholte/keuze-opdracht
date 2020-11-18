@@ -57,3 +57,39 @@ main#welcome-wrapper svg {
   transform: scale(1.03);
   box-shadow: 0 10px 20px -5px rgba(0,0,0,.5);
 }
+
+
+/* account page */
+
+main#account-block {
+  padding: 50px 0 0;
+  background: indigo;
+}
+
+main#account-block h1 {
+  color: #c2c2c2;
+  font-size: 3rem;
+}
+
+main#account-block p {
+  font-size: 1.3rem;
+  color: #c2c2c2;
+  line-height: 1.8;
+  margin-bottom: -100px;
+}
+
+@media screen and (max-width: 1200px) {
+  main#account-block p {
+    margin-bottom: -50px;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  main#account-block p {
+    margin-bottom: 0;
+  }
+}
+
+main#account-block svg {
+  display: block;
+}
