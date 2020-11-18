@@ -7,3 +7,11 @@ function navbarToggle(el) {
   el.classList.toggle('focussed');
   navigationEl.classList.toggle('visible');
 }
+
+
+// auto-hide alerts after 15 seconds
+
+var alert = document.getElementById('page-alert');
+setTimeout(function() {
+  alert.classList.add('invisible');
+}, 15000);

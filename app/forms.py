@@ -10,6 +10,7 @@ class LoginForm(FlaskForm):
 
 class SignUpForm(FlaskForm):
   name = StringField('Vul je naam in', validators=[DataRequired(message='Dit veld is verplicht!')])
+  username = StringField('Maak een gebruikersnaam aan', validators=[DataRequired(message='Dit veld is verplicht!')])
   email = StringField('Vul je e-mailadres in', validators=[DataRequired(message='Dit veld is verplicht!'), Email(message='Vul een geldig e-mailadres in!')])
   password = PasswordField('Maak een nieuw wachtwoord aan', validators=[DataRequired(message='Dit veld is verplicht!')])
   confirm = PasswordField('Herhaal je wachtwoord', validators=[EqualTo('password', message='Dit veld moet gelijk zijn aan wachtwoord')])

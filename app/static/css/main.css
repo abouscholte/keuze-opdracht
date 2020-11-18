@@ -134,3 +134,45 @@ a:focus {
 .container.container-small {
   max-width: 640px;
 }
+
+
+/* alerts */
+
+.alert {
+  position: fixed;
+  top: 80px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 999;
+  width: 80%;
+  max-width: 400px;
+  background: white;
+  padding: 10px 70px 10px 30px;
+  border-radius: 2em;
+  box-shadow: 5px 5px 10px rgba(43, 23, 58, 0.4);
+  box-sizing: border-box;
+  color: #222;
+  transition: .15s;
+  pointer-events: auto;
+}
+
+.alert.invisible {
+  opacity: 0;
+  transform: translateX(-50%) scale(0.95);
+  pointer-events: none;
+}
+
+.alert span.close {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  font-size: 25px;
+  color: #444;
+}
+
+.alert span.close:hover,
+.alert span.close:focus {
+  color: black;
+} 

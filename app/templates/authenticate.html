@@ -24,6 +24,16 @@
         <a href="{{ url_for('posts.index') }}" class="navbar-logo navbar-logo-center">Learning Python</a>
       </div>
     </nav>
+
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        {% for message in messages %}
+          <div class="alert" id="page-alert">{{ message }}
+            <span class="close" onclick="this.parentElement.classList.add('invisible');">&times;</span>
+          </div>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
     
     {% block content %}{% endblock %}
 

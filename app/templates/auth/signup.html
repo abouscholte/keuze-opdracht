@@ -34,6 +34,17 @@
         {% endif %}
       </div>
       <div class="form-group">
+        {{ form.username.label }}
+        {% if form.username.errors %}
+          {{ form.username(class="incorrect-input") }}
+          {% for error in form.username.errors %}
+            <div class="incorrect-input">{{ error }}</div>
+          {% endfor %}
+        {% else %}
+          {{ form.username }}
+        {% endif %}
+      </div>
+      <div class="form-group">
         {{ form.password.label }}
         {% if form.password.errors %}
           {{ form.password(class="incorrect-input") }}
