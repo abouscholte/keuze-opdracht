@@ -1,0 +1,59 @@
+/* styles for welcome page */
+
+main#welcome-wrapper {
+  padding: 50px 0 0 0;
+  background: indigo;
+  color: white;
+}
+
+main#welcome-wrapper .container {
+  position: relative;
+}
+
+main#welcome-wrapper h2.welcome-title {
+  font-size: 2.5rem;
+  font-family: 'IBM Plex Mono', monospace;
+  color: #f2f2f2;
+  margin-bottom: 30px;
+}
+
+main#welcome-wrapper p.welcome-text {
+  font-size: 1.3rem;
+  color: #c9c9c9;
+  margin: 0;
+  line-height: 2;
+}
+
+main#welcome-wrapper svg {
+  display: block;
+}
+
+#float-button-group {
+  position: absolute;
+  width: 100%;
+  margin-top: 30px;
+  left: 20px;
+  padding-right: 20px;
+  box-sizing: border-box;
+}
+
+#float-button-group .float-button {
+  margin-bottom: 10px;
+  border: 3px solid rgb(158, 158, 232);
+  border-radius: 1.5em;
+  color: black;
+  background: white;
+  display: block;
+  width: auto;
+  text-align: center;
+  padding: 15px 30px;
+  text-decoration: none;
+  transition: .3s;
+  box-sizing: border-box;
+}
+
+#float-button-group .float-button:hover,
+#float-button-group .float-button:focus {
+  transform: scale(1.03);
+  box-shadow: 0 10px 20px -5px rgba(0,0,0,.5);
+}

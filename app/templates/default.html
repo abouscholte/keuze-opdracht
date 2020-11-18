@@ -13,6 +13,7 @@
 
     <!-- links to css -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,400;0,600;1,400;1,600&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital@0;1&display=swap">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/navigation.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/forms.css') }}">
@@ -24,14 +25,25 @@
       (url_for('auth.login'), 'login', 'Log In'),
       (url_for('auth.signup'), 'signup', 'Meld Aan')
     ] %}
+
+    {% set user_items = [
+      (url_for('posts.index'), 'home', 'Home'),
+      (url_for('auth.logout'), 'logout', 'Log Uit')
+    ] %}
     
     <nav class="navbar">
       <div class="container navbar-container">
         <a href="{{ url_for('posts.index') }}" class="navbar-logo">Learning Python</a>
         <ul class="navbar-items" id="mainNavigation">
-          {% for url, id, name in navbar_items %}
-            <li class="navbar-item {% if id == current %}active{% endif %}"><a href="{{ url }}">{{ name }}</a></li>
-          {% endfor %}
+          {% if current_user.is_authenticated %}
+            {% for url, id, name in user_items %}
+              <li class="navbar-item {% if id == current %}active{% endif %}"><a href="{{ url }}">{{ name }}</a></li>
+            {% endfor %}
+          {% else %}
+            {% for url, id, name in navbar_items %}
+              <li class="navbar-item {% if id == current %}active{% endif %}"><a href="{{ url }}">{{ name }}</a></li>
+            {% endfor %}
+          {% endif %}
         </ul>
         <div class="navbar-toggler" onclick="navbarToggle(this);" data-navigation="mainNavigation"><span></span><span></span><span></span><span></span></div>
       </div>

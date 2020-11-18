@@ -1,0 +1,17 @@
+{% extends 'authenticate.html' %}
+{% set title = 'Welkom bij Learning Python' %}
+{% set description = 'Welkom bij Learning Python. Dit is de beste manier om de beginselen te leren van Python en hoe je met behulp van een Web Framework je eerste, simpele Python website kan maken!' %}
+
+{% block content %}
+  <main id="welcome-wrapper">
+    <div class="container container-small">
+      <h2 class="welcome-title">print('hello, {{ current_user.name }}')</h2>
+      <p class="welcome-text">Welkom bij Learning Python. Je hebt zojuist alle lessen ontgrendeld door een account aan te maken. Kies nu met welke cursus je wilt beginnen.</p>
+      <div id="float-button-group">
+        <a href="{{ url_for('posts.index') + '?course=beginners' }}" class="float-button">Leer het begin van Python</a>
+        <a href="{{ url_for('posts.index') + '?course=website' }}" class="float-button">Begin met het maken van een website</a>
+      </div>
+    </div>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 319"><path fill="#f2f2f2" fill-opacity="1" d="M0,32L40,69.3C80,107,160,181,240,197.3C320,213,400,171,480,170.7C560,171,640,213,720,224C800,235,880,213,960,197.3C1040,181,1120,171,1200,176C1280,181,1360,203,1400,213.3L1440,224L1440,320L1400,320C1360,320,1280,320,1200,320C1120,320,1040,320,960,320C880,320,800,320,720,320C640,320,560,320,480,320C400,320,320,320,240,320C160,320,80,320,40,320L0,320Z"></path></svg>
+  </main>
+{% endblock %}
