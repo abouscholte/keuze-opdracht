@@ -1,3 +1,4 @@
+from sqlalchemy.orm import backref
 from app import db, login_manager
 from flask_login import UserMixin
 
@@ -15,3 +16,20 @@ class User(db.Model, UserMixin):
 
   def __repr__(self):
     return '<User %r>' % self.username
+
+class Lesson(db.Model):
+  id = db.Column(db.Integer, primary_key=True)
+  title = db.Column(db.String(120), nullable=False)
+  body = db.Column(db.Text, nullable=False)
+  course_id = db.Column(db.Integer, db.ForeignKey('course.id'), nullable=False)
+  course = db.relationship('Course', backref=db.backref('lessons', lazy=True))
+
+  def __repr__(self):
+    return '<Post %r>' % self.title
+
+class Course(db.Model):
+  id = db.Column(db.Integer, primary_key=True)
+  name = db.Column(db.String(120))
+
+  def __repr__(self):
+    return '<Course %r>' % self.name

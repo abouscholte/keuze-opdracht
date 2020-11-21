@@ -16,7 +16,9 @@ form.page-form {
   color: #333333;
 }
 
-.form-group input {
+.form-group input,
+.form-group textarea,
+.form-group select {
   display: block;
   width: 100%;
   padding: 10px 20px;
@@ -27,6 +29,11 @@ form.page-form {
   font-family: 'Poppins', sans-serif;
   transition: .2s;
   -webkit-appearance: none;
+  resize: none;
+}
+
+.form-group textarea {
+  height: 500px;
 }
 
 .form-group input:hover,

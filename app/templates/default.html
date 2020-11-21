@@ -14,6 +14,8 @@
     <!-- links to css -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,400;0,600;1,400;1,600&display=swap">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital@0;1&display=swap">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.4.0/styles/github.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/webfonts.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/navigation.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/forms.css') }}">
@@ -22,20 +24,20 @@
 
   <body>
     {% set navbar_items = [
-      (url_for('posts.index'), 'home', 'Home'),
+      (url_for('lessons.index'), 'home', 'Home'),
       (url_for('auth.login'), 'login', 'Log In'),
       (url_for('auth.signup'), 'signup', 'Meld Aan')
     ] %}
 
     {% set user_items = [
-      (url_for('posts.index'), 'home', 'Home'),
+      (url_for('lessons.index'), 'home', 'Home'),
       (url_for('auth.account'), 'account', current_user.name),
       (url_for('auth.logout'), 'logout', 'Log Uit')
     ] %}
     
     <nav class="navbar">
       <div class="container navbar-container">
-        <a href="{{ url_for('posts.index') }}" class="navbar-logo">Learning Python</a>
+        <a href="{{ url_for('lessons.index') }}" class="navbar-logo">Learning Python</a>
         <ul class="navbar-items" id="mainNavigation">
           {% if current_user.is_authenticated %}
             {% for url, id, name in user_items %}
@@ -61,6 +63,8 @@
 
     {% block content %}{% endblock %}
 
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.4.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
     <script type="text/javascript" src="{{ url_for('static', filename='js/app.js') }}"></script>
   </body>
 </html>

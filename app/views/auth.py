@@ -16,7 +16,7 @@ auth = Blueprint('auth', __name__)
 def login():
   if current_user.is_authenticated:
     flash('U bent al ingelogd')
-    return redirect(url_for('posts.index'))
+    return redirect(url_for('lessons.index'))
   
   form = LoginForm()
   if form.validate_on_submit():
@@ -27,7 +27,7 @@ def login():
 
         next = request.args.get('next')
         flash('U bent nu ingelogd!')
-        return redirect(next or url_for('posts.index'))
+        return redirect(next or url_for('lessons.index'))
       else:
         flash('U heeft geen correct wachtwoord opgegeven, probeer het opnieuw!')
         return redirect(url_for('auth.login'))
@@ -44,7 +44,7 @@ def login():
 def signup():
   if current_user.is_authenticated:
     flash('U bent al ingelogd')
-    return redirect(url_for('posts.index'))
+    return redirect(url_for('lessons.index'))
   
   form = SignUpForm()
   if form.validate_on_submit():
@@ -67,7 +67,7 @@ def signup():
 def logout():
   logout_user()
   flash('Je bent nu uitgelogd')
-  return redirect(url_for('posts.index'))
+  return redirect(url_for('lessons.index'))
 
 
 # account route

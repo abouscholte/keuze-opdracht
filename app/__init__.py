@@ -16,9 +16,9 @@ def create_app(config_class=Config):
   migrate.init_app(app, db)
   login_manager.init_app(app)
 
-  from app.views.posts import posts
+  from app.views.lessons import lessons
   from app.views.auth import auth
-  app.register_blueprint(posts)
+  app.register_blueprint(lessons)
   app.register_blueprint(auth)
 
   return app

@@ -4,6 +4,36 @@
 
 {% block content %}
   <div class="container container-main">
-    <h1 class="color">Alle Cursussen</h1>
+    <h1 class="color">Alle Lessen
+      {% if current_user.admin %}
+        <a href="{{ url_for('lessons.new_course') }}" class="new-course-button">&plus;</a>
+      {% endif %}
+    </h1>
+
+    <section id="lessons">
+      <div class="course course-beginners">
+        <h2 class="course-title">Beginners Cursus</h2>
+        <div class="lessons-flex">
+          {% for lesson in beginnerLessons %}
+            <a class="lesson" href="{{ url_for('lessons.lesson', id=lesson.id) }}">
+              <img src="{{ url_for('static', filename='img/lesson.svg') }}" alt="lesson.svg" class="lesson_img">
+              <h3 class="lesson-title">{{ lesson.title }}</h3>
+            </a>
+          {% endfor %}
+        </div>
+      </div>
+
+      <div class="course course-beginners">
+        <h2 class="course-title">Website Cursus</h2>
+        <div class="lessons-flex">
+          {% for lesson in websiteLessons %}
+            <a class="lesson" href="{{ url_for('lessons.lesson', id=lesson.id) }}">
+              <img src="{{ url_for('static', filename='img/web.svg') }}" alt="web.svg" class="lesson_img">
+              <h3 class="lesson-title">{{ lesson.title }}</h3>
+            </a>
+          {% endfor %}
+        </div>
+      </div>
+    </section>
   </div>
 {% endblock %}

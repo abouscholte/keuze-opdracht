@@ -1,5 +1,7 @@
+from wtforms.fields.core import SelectField
+
 from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField, SubmitField
+from wtforms import StringField, PasswordField, SubmitField, TextAreaField, SelectField
 from wtforms.validators import DataRequired, Email, EqualTo
 
 class LoginForm(FlaskForm):
@@ -20,3 +22,9 @@ class EditAccountForm(FlaskForm):
   username = StringField('Wijzig je gebruikersnaam', validators=[DataRequired(message='Dit veld is verplicht!')])
   email = StringField('Wijzig je e-mailadres', validators=[DataRequired(message='Dit veld is verplicht!'), Email(message='Vul een geldig e-mailadres in!')])
   submit = SubmitField('Wijzig Account') 
+
+class NewCourseForm(FlaskForm):
+  title = StringField('Voeg een titel toe aan de les', validators=[DataRequired(message='Dit veld is verplicht!')])
+  body = TextAreaField('Voeg content toe aan de les', validators=[DataRequired(message='Dit veld is verplicht!')])
+  course = SelectField('Voeg toe aan een cursus')
+  submit = SubmitField('Voeg de cursus toe')

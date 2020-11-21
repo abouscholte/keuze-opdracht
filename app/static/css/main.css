@@ -33,6 +33,7 @@ h1, h2, h3, h4 {
 h1 {
   font-size: 2.7em;
   text-transform: uppercase;
+  position: relative;
 }
 
 h1.color {
@@ -166,4 +167,22 @@ a:focus {
   opacity: 0;
   transform: translateX(-50%) scale(0.95);
   pointer-events: none;
+}
+
+
+/* code block */
+
+pre {
+  padding: 16px;
+  overflow: auto;
+  margin-bottom: 30px;
+  font-size: 85%;
+  line-height: 1.45;
+  background-color: #f6f8fa;
+  border-radius: 6px;
+  box-shadow: 5px 10px 20px rgba(0,0,0,.2);
+}
+
+pre code {
+  font-family: 'SF Mono', monospace;
 }
