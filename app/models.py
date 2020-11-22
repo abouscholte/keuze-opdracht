@@ -21,6 +21,7 @@ class Lesson(db.Model):
   id = db.Column(db.Integer, primary_key=True)
   title = db.Column(db.String(120), nullable=False)
   body = db.Column(db.Text, nullable=False)
+  locked = db.Column(db.Boolean, default=True)
   course_id = db.Column(db.Integer, db.ForeignKey('course.id'), nullable=False)
   course = db.relationship('Course', backref=db.backref('lessons', lazy=True))
 

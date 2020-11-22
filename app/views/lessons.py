@@ -17,6 +17,9 @@ def index():
 @lessons.route('/lessons/lesson-<id>/')
 def lesson(id):
   lesson = Lesson.query.filter_by(id=id).first_or_404()
+  if not current_user and lesson.locked:
+    abort(401)
+
   previous = db.session.query(Lesson).order_by(Lesson.id.desc()).filter(Lesson.course_id == lesson.course_id).filter(Lesson.id < lesson.id).first()
   next = db.session.query(Lesson).order_by(Lesson.id.asc()).filter(Lesson.course_id == lesson.course_id).filter(Lesson.id > lesson.id).first()
 

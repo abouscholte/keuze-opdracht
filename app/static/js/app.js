@@ -18,3 +18,15 @@ if (alert) {
     alert.classList.add('invisible');
   }, 7500);
 }
+
+
+// locked lessons
+
+function lockedLesson(el) {
+  var banner = el.children[2];
+  banner.classList.add('visible');
+
+  setInterval(function() {
+    banner.classList.remove('visible');
+  }, 5000);
+}
