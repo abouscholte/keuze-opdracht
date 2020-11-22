@@ -15,10 +15,10 @@
         <h2 class="course-title">Beginners Cursus</h2>
         <div class="lessons-flex">
           {% for lesson in beginnerLessons %}
-            <a class="lesson {% if not current_user and lesson.locked %}locked{% else %}unlocked{% endif %}" {% if not current_user and lesson.locked %}onclick="lockedLesson(this);"{% else %}href="{{ url_for('lessons.lesson', id=lesson.id) }}"{% endif %}>
+            <a class="lesson {% if not current_user.is_authenticated and lesson.locked %}locked{% else %}unlocked{% endif %}" {% if not current_user.is_authenticated and lesson.locked %}onclick="lockedLesson(this);"{% else %}href="{{ url_for('lessons.lesson', id=lesson.id) }}"{% endif %}>
               <img src="{{ url_for('static', filename='img/lesson.svg') }}" alt="lesson.svg" class="lesson_img">
               <h3 class="lesson-title">{{ lesson.title }}</h3>
-              {% if not current_user and lesson.locked %}<span class="lesson-unlock">Log in om deze les te kunnen bekijken</span>{% endif %}
+              {% if not current_user.is_authenticated and lesson.locked %}<span class="lesson-unlock">Log in om deze les te kunnen bekijken</span>{% endif %}
             </a>
           {% endfor %}
         </div>
@@ -28,10 +28,10 @@
         <h2 class="course-title">Website Cursus</h2>
         <div class="lessons-flex">
           {% for lesson in websiteLessons %}
-            <a class="lesson {% if not current_user and lesson.locked %}locked{% else %}unlocked{% endif %}" {% if not current_user and lesson.locked %}onclick="lockedLesson(this);"{% else %}href="{{ url_for('lessons.lesson', id=lesson.id) }}"{% endif %}>
+            <a class="lesson {% if not current_user.is_authenticated and lesson.locked %}locked{% else %}unlocked{% endif %}" {% if not current_user.is_authenticated and lesson.locked %}onclick="lockedLesson(this);"{% else %}href="{{ url_for('lessons.lesson', id=lesson.id) }}"{% endif %}>
               <img src="{{ url_for('static', filename='img/web.svg') }}" alt="web.svg" class="lesson_img">
               <h3 class="lesson-title">{{ lesson.title }}</h3>
-              {% if not current_user and lesson.locked %}<span class="lesson-unlock">Log in om deze les te kunnen bekijken</span>{% endif %}
+              {% if not current_user.is_authenticated and lesson.locked %}<span class="lesson-unlock">Log in om deze les te kunnen bekijken</span>{% endif %}
             </a>
           {% endfor %}
         </div>
