@@ -24,9 +24,12 @@ if (alert) {
 
 function lockedLesson(el) {
   var banner = el.children[2];
-  banner.classList.add('visible');
 
-  setInterval(function() {
-    banner.classList.remove('visible');
-  }, 5000);
+  if (!banner.classList.contains('visible')) {
+    banner.classList.add('visible');
+
+    setTimeout(function() {
+      banner.classList.remove('visible');
+    }, 5000);
+  }
 }
