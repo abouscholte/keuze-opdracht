@@ -143,14 +143,38 @@ main#hero-block svg {
 
 /* lessons */
 
+p.back {
+  margin-bottom: 10px;
+  display: inline-block;
+}
+
+p.back a {
+  text-decoration: none;
+  color: #777;
+  font-weight: bold;
+  transition: color .3s;
+}
+
+p.back:hover a,
+p.back:focus a {
+  color: black;
+}
+
 #lessons {
   margin-top: 40px;
 }
 
 h2.course-title {
   font-size: 1.8rem;
-  font-style: italic;
-  text-decoration: underline;
+}
+
+h2.course-title a {
+  font-size: 1.2rem;
+  margin-left: 10px;
+}
+
+.course {
+  margin-bottom: 30px;
 }
 
 .lessons-flex {
@@ -271,10 +295,12 @@ a.lesson-clicker {
   text-align: center;
   margin-top: 20px;
   background: indigo;
-  color: white;
-  padding: 20px;
+  color: #ddd;
+  font-size: 14px;
+  padding: 10px;
   text-decoration: none;
   transition: .2s;
+  box-sizing: border-box;
 }
 
 a.lesson-clicker:hover,
@@ -284,18 +310,18 @@ a.lesson-clicker:focus {
 
 a.clicker-previous {
   border-radius: .5em 0 0 .5em;
-  border: solid black;
-  border-width: 4px 2px 4px 4px;
+  border: solid rgb(54, 0, 93);
+  border-width: 3px 1.5px 3px 3px;
 }
 
 a.clicker-next {
   border-radius: 0 .5em .5em 0;
-  border: solid black;
-  border-width: 4px 4px 4px 2px;
+  border: solid rgb(54, 0, 93);
+  border-width: 3px 3px 3px 1.5px;
 }
 
 a.only-clicker {
   border-radius: .5em;
-  border: 4px solid black;
+  border: 3px solid rgb(54, 0, 93);
   margin: 20px auto 0 auto;
 }

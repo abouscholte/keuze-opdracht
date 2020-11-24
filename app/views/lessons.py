@@ -1,6 +1,6 @@
 from app import db
 from app.models import Course, Lesson
-from flask import Blueprint, render_template, abort, flash, url_for, redirect
+from flask import Blueprint, render_template, abort, flash, url_for, redirect, request
 from flask_login import login_required, current_user
 
 from app.forms import NewCourseForm
@@ -13,6 +13,16 @@ def index():
   websiteLessons = Lesson.query.filter_by(course_id=2).all()
   
   return render_template('index.html', beginnerLessons=beginnerLessons, websiteLessons=websiteLessons)
+
+@lessons.route('/courses/beginners/')
+def beginners():
+  lessons = Lesson.query.filter_by(course_id=1).all()
+  return render_template('courses/beginners.html', lessons=lessons)
+
+@lessons.route('/courses/website/')
+def website():
+  lessons = Lesson.query.filter_by(course_id=2).all()
+  return render_template('courses/beginners.html', lessons=lessons)
 
 @lessons.route('/lessons/lesson-<id>/')
 def lesson(id):

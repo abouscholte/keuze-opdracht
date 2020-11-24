@@ -4,7 +4,7 @@
 
 {% block content %}
   <div class="container container-main">
-    <h1 class="color">Alle Lessen
+    <h1 class="color">Alle Cursussen
       {% if current_user.admin %}
         <a href="{{ url_for('lessons.new_course') }}" class="new-course-button">&plus;</a>
       {% endif %}
@@ -12,7 +12,7 @@
 
     <section id="lessons">
       <div class="course course-beginners">
-        <h2 class="course-title">Beginners Cursus</h2>
+        <h2 class="course-title">Beginners Cursus <a href="{{ url_for('lessons.beginners') }}">Bekijk alles</a></h2>
         <div class="lessons-flex">
           {% for lesson in beginnerLessons %}
             <a class="lesson {% if not current_user.is_authenticated and lesson.locked %}locked{% else %}unlocked{% endif %}" {% if not current_user.is_authenticated and lesson.locked %}onclick="lockedLesson(this);"{% else %}href="{{ url_for('lessons.lesson', id=lesson.id) }}"{% endif %}>
@@ -25,7 +25,7 @@
       </div>
 
       <div class="course course-website">
-        <h2 class="course-title">Website Cursus</h2>
+        <h2 class="course-title">Website Cursus <a href="{{ url_for('lessons.website') }}">Bekijk alles</a></h2>
         <div class="lessons-flex">
           {% for lesson in websiteLessons %}
             <a class="lesson {% if not current_user.is_authenticated and lesson.locked %}locked{% else %}unlocked{% endif %}" {% if not current_user.is_authenticated and lesson.locked %}onclick="lockedLesson(this);"{% else %}href="{{ url_for('lessons.lesson', id=lesson.id) }}"{% endif %}>

@@ -1,0 +1,25 @@
+{% extends 'default.html' %}
+{% set current = 'beginners' %}
+{% set title = 'Beginners Cursus' %}
+{% set description = 'Leer het begin van Python op Learning Python!' %}
+
+{% block content %}
+<div class="container container-main">
+  <p class="back"><a href="{{ url_for('lessons.index') }}">< Alle cursussen</a></p>
+  <h1 class="color">Beginners Cursus</h1>
+
+  <section id="lessons">
+    <div class="course course-website">
+      <div class="lessons-flex">
+        {% for lesson in lessons %}
+          <a class="lesson {% if not current_user.is_authenticated and lesson.locked %}locked{% else %}unlocked{% endif %}" {% if not current_user.is_authenticated and lesson.locked %}onclick="lockedLesson(this);"{% else %}href="{{ url_for('lessons.lesson', id=lesson.id) }}"{% endif %}>
+            <img src="{{ url_for('static', filename='img/web.svg') }}" alt="web.svg" class="lesson_img">
+            <h3 class="lesson-title">{{ lesson.title }}</h3>
+            {% if not current_user.is_authenticated and lesson.locked %}<span class="lesson-unlock">Log in om deze les te kunnen bekijken</span>{% endif %}
+          </a>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+</div>
+{% endblock %}
