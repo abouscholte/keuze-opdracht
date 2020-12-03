@@ -3,7 +3,7 @@ from app.models import Course, Lesson
 from flask import Blueprint, render_template, abort, flash, url_for, redirect, request
 from flask_login import login_required, current_user
 
-from app.forms import NewCourseForm
+from app.forms import NewCourseForm, EditLessonForm
 
 lessons = Blueprint('lessons', __name__)
 
@@ -27,7 +27,7 @@ def website():
 @lessons.route('/lessons/lesson-<id>/')
 def lesson(id):
   lesson = Lesson.query.filter_by(id=id).first_or_404()
-  if not current_user and lesson.locked:
+  if not current_user.is_authenticated and lesson.locked:
     abort(401)
 
   previous = db.session.query(Lesson).order_by(Lesson.id.desc()).filter(Lesson.course_id == lesson.course_id).filter(Lesson.id < lesson.id).first()
@@ -38,8 +38,7 @@ def lesson(id):
 @lessons.route('/lessons/new/', methods=['GET', 'POST'])
 @login_required
 def new_course():
-  if not current_user.admin:
-    abort(403)
+  if not current_user.admin: abort(401)
 
   form = NewCourseForm()
   form.course.choices = [(g.id, g.name) for g in Course.query.order_by('name')]
@@ -54,3 +53,36 @@ def new_course():
     return redirect(url_for('lessons.index'))
 
   return render_template('lessons/new.html', form=form)
+
+@lessons.route('/lessons/lesson-<id>/edit/', methods=['GET', 'POST'])
+@login_required
+def edit_lesson(id):
+  lesson = Lesson.query.filter_by(id=id).first_or_404()
+  if not current_user.admin: abort(401)
+
+  form = EditLessonForm()
+
+  if form.validate_on_submit():
+    lesson.title = form.title.data
+    lesson.body = form.body.data
+
+    db.session.commit()
+    flash('De les is succesvol aangepast')
+    return redirect(url_for('lessons.lesson', id=lesson.id))
+  elif request.method == 'GET':
+    form.title.data = lesson.title
+    form.body.data = lesson.body
+
+  return render_template('lessons/edit.html', lesson=lesson, form=form)
+
+@lessons.route('/lessons/lesson-<id>/delete/', methods=['GET', 'POST'])
+@login_required
+def delete_lesson(id):
+  lesson = Lesson.query.filter_by(id=id).first_or_404()
+  if not current_user.admin: abort(401)
+
+  db.session.delete(lesson)
+  db.session.commit()
+
+  flash('De les is verwijderd')
+  return redirect(url_for('lessons.index'))

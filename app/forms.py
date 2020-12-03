@@ -27,4 +27,9 @@ class NewCourseForm(FlaskForm):
   title = StringField('Voeg een titel toe aan de les', validators=[DataRequired(message='Dit veld is verplicht!')])
   body = TextAreaField('Voeg content toe aan de les', validators=[DataRequired(message='Dit veld is verplicht!')])
   course = SelectField('Voeg toe aan een cursus')
-  submit = SubmitField('Voeg de cursus toe')
+  submit = SubmitField('Voeg de les toe')
+
+class EditLessonForm(FlaskForm):
+  title = StringField('Wijzig de titel van de les', validators=[DataRequired(message='Dit veld is verplicht!')])
+  body = TextAreaField('Wijzig de content van de les', validators=[DataRequired(message='Dit veld is verplicht!')])
+  submit = SubmitField('Wijzig de les')

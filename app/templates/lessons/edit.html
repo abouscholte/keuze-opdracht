@@ -1,0 +1,42 @@
+{% extends 'default.html' %}
+{% set title = 'Wijzig ' + lesson.title %}
+
+{% block content %}
+  <main id="hero-block">
+    <div class="container container-small">
+      <h1>Wijzig {{ lesson.title }}</h1>
+      <p>Pas de titel en de content van een les aan en verwijder de les.</p>
+    </div>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 319"><path fill="#f2f2f2" fill-opacity="1" d="M0,256L48,229.3C96,203,192,149,288,154.7C384,160,480,224,576,218.7C672,213,768,139,864,128C960,117,1056,171,1152,197.3C1248,224,1344,224,1392,224L1440,224L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>
+  </main>
+
+  <div class="container container-main">
+    <form method="POST" class="page-form">
+      {{ form.csrf_token }}
+      <div class="form-group">
+        {{ form.title.label }}
+        {% if form.title.errors %}
+          {{ form.title(class="incorrect-input") }}
+          {% for error in form.title.errors %}
+            <div class="incorrect-input">{{ error }}</div>
+          {% endfor %}
+        {% else %}
+          {{ form.title }}
+        {% endif %}
+      </div>
+      <div class="form-group">
+        {{ form.body.label }}
+        {% if form.body.errors %}
+          {{ form.body(class="incorrect-input") }}
+          {% for error in form.body.errors %}
+            <div class="incorrect-input">{{ error }}</div>
+          {% endfor %}
+        {% else %}
+          {{ form.body }}
+        {% endif %}
+      </div>
+      {{ form.submit(class='button') }}
+    </form>
+    <p><a href="{{ url_for('lessons.delete_lesson', id=lesson.id) }}">Verwijder deze les</a></p>
+  </div>
+{% endblock %}

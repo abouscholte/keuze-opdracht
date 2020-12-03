@@ -6,7 +6,7 @@
   <div class="container container-main">
     <h1 class="color">Alle Cursussen
       {% if current_user.admin %}
-        <a href="{{ url_for('lessons.new_course') }}" class="new-course-button">&plus;</a>
+        <a href="{{ url_for('lessons.new_course') }}" class="new-course-button"><span>&plus;</span></a>
       {% endif %}
     </h1>
 

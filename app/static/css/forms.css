@@ -33,15 +33,19 @@ form.page-form {
 }
 
 .form-group textarea {
-  height: 500px;
+  height: 90vh;
+  line-height: 2;
 }
 
 .form-group input:hover,
-.form-group input:focus {
+.form-group input:focus,
+.form-group textarea:hover,
+.form-group textarea:focus {
   border-color: rgb(107, 66, 135);
 }
 
-.form-group input:focus {
+.form-group input:focus,
+.form-group textarea:focus {
   outline: 0;
   box-shadow: 0 0 0 3px rgba(0, 123, 255, .5);
 }

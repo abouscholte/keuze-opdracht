@@ -38,6 +38,7 @@ h1 {
 
 h1.color {
   color: indigo;
+  padding-right: 40px;
 }
 
 p {
@@ -56,6 +57,11 @@ p.subtitle {
 p.small {
   font-size: 15px;
   color: #555555;
+}
+
+p.center {
+  text-align: center;
+  margin-top: 20px;
 }
 
 

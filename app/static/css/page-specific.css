@@ -5,11 +5,11 @@ h1 a.new-course-button {
   font-size: 30px;
   width: 50px;
   height: 50px;
+  background: indigo;
+  color: white;
   display: flex;
   justify-content: center;
   align-items: center;
-  background: indigo;
-  color: white;
   position: absolute;
   right: 20px;
   line-height: 1;
@@ -23,12 +23,8 @@ h1 a.new-course-button {
 
 h1 a.new-course-button:hover,
 h1 a.new-course-button:focus {
-  box-shadow: 5px 5px 20px 5px rgba(0,0,0,.3);
-  background: transparent;
-  color: indigo;
+  box-shadow: 1px 5px 10px 2px rgba(0,0,0,.4);
 }
-
-
 
 /* styles for welcome page */
 
@@ -62,7 +58,7 @@ main#welcome-wrapper svg {
 
 #float-button-group {
   position: absolute;
-  width: 100%;
+  width: calc(100% - 20px);
   margin-top: 30px;
   left: 20px;
   padding-right: 20px;
@@ -82,6 +78,7 @@ main#welcome-wrapper svg {
   text-decoration: none;
   transition: .3s;
   box-sizing: border-box;
+  margin-right: 0;
 }
 
 #float-button-group .float-button:hover,
@@ -113,6 +110,10 @@ main#hero-block p {
   color: #c2c2c2;
   line-height: 1.8;
   margin-bottom: -100px;
+}
+
+main#hero-block a {
+  color: white;
 }
 
 @media screen and (max-width: 1200px) {
@@ -242,8 +243,8 @@ a.lesson span.lesson-unlock.visible {
 
 @media screen and (max-width: 900px) {
   a.lesson {
-    flex-basis: 45%;
-    margin-right: calc(10%/1);
+    flex-basis: 47.5%;
+    margin-right: calc(5%/1);
   }
 
   a.lesson:nth-child(2n) {
@@ -251,7 +252,7 @@ a.lesson span.lesson-unlock.visible {
   }
   
   a.lesson:nth-child(3n) {
-    margin-right: calc(10%/1);
+    margin-right: calc(5%/1);
   }
 }
 

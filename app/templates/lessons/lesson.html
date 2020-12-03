@@ -11,11 +11,14 @@
   </main>
 
   <div class="container container-main">
-    {{ lesson.body | safe }}
+    {% filter markdown %}{{ lesson.body | safe }}{% endfilter %}
 
-    <div class="lesson-clickers">
-      {% if previous %}<a href="{{ url_for('lessons.lesson', id=previous.id) }}" class="lesson-clicker clicker-previous {% if not next %}only-clicker{% endif %}">Vorige les</a>{% endif %}
-      {% if next %}<a href="{{ url_for('lessons.lesson', id=next.id) }}" class="lesson-clicker clicker-next {% if not previous %}only-clicker{% endif %}">Volgende les</a>{% endif %}
-    </div>
+    {% if current_user.is_authenticated %}
+      <div class="lesson-clickers">
+        {% if previous %}<a href="{{ url_for('lessons.lesson', id=previous.id) }}" class="lesson-clicker clicker-previous {% if not next %}only-clicker{% endif %}">Vorige les</a>{% endif %}
+        {% if next %}<a href="{{ url_for('lessons.lesson', id=next.id) }}" class="lesson-clicker clicker-next {% if not previous %}only-clicker{% endif %}">Volgende les</a>{% endif %}
+      </div>
+    {% endif %}
+    {% if current_user.admin %}<p class="center"><a href="{{ url_for('lessons.edit_lesson', id=lesson.id) }}">Wijzig les</a></p>{% endif %}
   </div>
 {% endblock %}
