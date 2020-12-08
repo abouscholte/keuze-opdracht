@@ -22,7 +22,7 @@ def beginners():
 @lessons.route('/courses/website/')
 def website():
   lessons = Lesson.query.filter_by(course_id=2).all()
-  return render_template('courses/beginners.html', lessons=lessons)
+  return render_template('courses/website.html', lessons=lessons)
 
 @lessons.route('/lessons/lesson-<id>/')
 def lesson(id):
