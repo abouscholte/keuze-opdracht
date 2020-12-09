@@ -261,6 +261,3 @@ Temporary Items
 *.code-workspace
 
 # End of https://www.toptal.com/developers/gitignore/api/python,flask,vscode,macos,git
-
-migrations/**/**
-migrations
