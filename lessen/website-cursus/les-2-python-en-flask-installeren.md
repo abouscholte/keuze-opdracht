@@ -2,7 +2,7 @@
 
 In deze les wordt uitgelegd hoe je de eerste stappen moet zetten om een website met Python te maken. Hiervoor heb je een juiste versie van Python (3.5 of nieuwer) nodig en het web framework dat we gaan gebruiken in deze cursus, Flask.
 
-Als eerste is het belangrijk om een goede versie van Python geïnstalleerd te hebben op je computer. Ga naar [https://www.python.org/downloads/] om de nieuwste versie van Python te installeren op je computer.
+Als eerste is het belangrijk om een goede versie van Python geïnstalleerd te hebben op je computer. Ga naar <a href="https://www.python.org/downloads/">https://www.python.org/downloads/</a> om de nieuwste versie van Python te installeren op je computer.
 
 Om dan te beginnen met het maken van je project, maak een map aan met de naam _python_website_ op je bureaublad of ergens anders waar je hem makkelijk terug kan vinden. Doe dit met de Terminal op Mac of Command Line op Windows. Dit gaat zo:
 

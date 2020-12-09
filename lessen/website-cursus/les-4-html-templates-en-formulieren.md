@@ -2,7 +2,8 @@
 
 In de vorige les heb je geleerd hoe je een heel simpele webpagina kan maken met Flask. Hierin maakte we gebruik van de return statement en hebben wat tekst laten weergeven in de webbrowser. In plaats van alleen tekst hadden we ook HTML kunnen laten weergeven op de pagina. Dit gaat op dezelfde manier:
 
-<pre><code class="python">return '''&lt;h1&gt;Mijn eerste pagina met Flask!&lt;/h1&gt; &lt;p&gt;Welkom op mijn allereerste webpagina gemaakt met Flask en Python!&lt;/p&gt;'''</code></pre>
+<pre><code class="python">return '''&lt;h1&gt;Mijn eerste pagina met Flask!&lt;/h1&gt; 
+&lt;p&gt;Welkom op mijn allereerste webpagina gemaakt met Flask en Python!&lt;/p&gt;'''</code></pre>
 
 Dit geeft normale HTML elementen weer op de webpagina. Dit is makkelijk om iets simpels weer te geven, maar niet erg overzichtelijk als je een hele pagina moet schrijven in HTML code. Daarom heeft Flask een functie ingebouwd waarmee HTML bestanden met dynamische elementen kunnen worden ingeladen. Deze functie heet _render_template_ en kan direct uit Flask geïmporteerd worden. Als je dit wilt gebruiken, ziet je python bestand er nu zo uit:
 
@@ -70,7 +71,7 @@ Het is verondersteld dat je kennis van HTML goed genoeg is om deze cursus te kun
  &lt;/body&gt;
 &lt;/html&gt;</code></pre>
 
-Er is het css-framework Bootstrap toegevoegd voor wat beter ogende styling, samen met een standaard Bootstrap navigatiebalk met een aantal juiste links. Let ook op de _href_ van deze links. Dit zijn speciale template links die gebruikt kunnen worden in Flask. Ze worden verwezen naar de functienaam zoals we die hebben geschreven in <i≥__init__.py</i>. Ook bij het css bestand dat ik heb toegevoegd is deze soort code toegevoegd. Dit css bestand is __hier__ te downloaden. 
+Er is het css-framework Bootstrap toegevoegd voor wat beter ogende styling, samen met een standaard Bootstrap navigatiebalk met een aantal juiste links. Let ook op de _href_ van deze links. Dit zijn speciale template links die gebruikt kunnen worden in Flask. Ze worden verwezen naar de functienaam zoals we die hebben geschreven in <i>\__init__.py</i>. Ook bij het css bestand dat ik heb toegevoegd is deze soort code toegevoegd. Dit css bestand is <a href="https://github.com/abouscholte/keuze-opdracht/blob/python_website_example/blog/static/main.css" target="_blank">hier, op GitHub</a> te downloaden. 
 
 Je zult zien dat er nu een foutmelding zal optreden, omdat er al een _url_for_ is toegevoegd voor de route voor de pagina voor het toevoegen van nieuwe posts. Deze pagina bestaat nog niet, dus dat is begrijpelijk.
 
@@ -100,7 +101,7 @@ class NieuwePostFormulier(FlaskForm):
  auteur = StringField('Vul je naam in', validators=[DataRequired()])
  submit = SubmitField('Voeg toe')</code></pre>
 
-Wat er hier gebeurt, is dat het formulier wordt opgesteld door een class te gebruiken. Hierin staan alle velden apart aangegeven met de correcte soort invulveld. Zo is er een StringField, TextAreaField en een SubmitField. Deze worden zo erg duidelijk als we dit om gaan zetten in HTML. We moeten eerst nog alleen dit formulier importeren in <i>__init__.py</i>. Dit doen we door aan de bovenkant van de pagina, net onder het importeren van Flask zelf, dit te typen:
+Wat er hier gebeurt, is dat het formulier wordt opgesteld door een class te gebruiken. Hierin staan alle velden apart aangegeven met de correcte soort invulveld. Zo is er een StringField, TextAreaField en een SubmitField. Deze worden zo erg duidelijk als we dit om gaan zetten in HTML. We moeten eerst nog alleen dit formulier importeren in <i>\__init__.py</i>. Dit doen we door aan de bovenkant van de pagina, net onder het importeren van Flask zelf, dit te typen:
 
 <pre><code class="python">from blog.forms import NieuwePostFormulier</code></pre>
 
@@ -158,7 +159,7 @@ Nu moeten we alleen nog een nieuw template aanmaken met de naam _nieuwe-post.htm
 
 Je ziet dat in elke _form-group_, er eerst een label wordt neergezet. Daarna wordt er gecontroleerd of er voor dat bepaalde veld foutmeldingen zijn. Als die er wel zijn, krijgt eerst de input zelf een class van _is-invalid_, en daarna komt er ook nog een stuk tekst voor de _invalid-feedback_. Als er niks fout is gegaan, wordt er alleen maar een normale input weergegeven. Alle classes die worden gebruikt zijn van Bootstrap en zijn dus heel makkelijk in gebruik. 
 
-Als je de pagina nu wilt openen, zul je een foutmelding zien dat er een _Secret Key_ nodig is. Deze voegen we toe op deze manier aan <i>__init__.py</i>:
+Als je de pagina nu wilt openen, zul je een foutmelding zien dat er een _Secret Key_ nodig is. Deze voegen we toe op deze manier aan <i>\__init__.py</i>:
 
 <pre><code class="python">app.config['SECRET_KEY'] = 'abcdefghijklmnopqrstuvwxyz'</code></pre>
 
