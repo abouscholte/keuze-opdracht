@@ -11,8 +11,4 @@ $ export FLASK_ENV=development
 $ flask run
 ```
 
-Om ook browser-sync te starten, voer de volgende commando's uit:
-```bash
-$ npm install -g browser-sync
-$ browser-sync start --proxy http://127.0.0.1:5000/ --files="app/templates/**, app/static/**" --no-notify
-```
+Lessen zijn uitgeschreven in Markdown in de map _lessen_. Markdown is hiervoor gekozen omdat dit de taal is waarin de lessen ook moeten worden ingevoerd in Learning Python.
