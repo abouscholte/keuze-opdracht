@@ -12,3 +12,5 @@ $ flask run
 ```
 
 Lessen zijn uitgeschreven in Markdown in de map _lessen_. Markdown is hiervoor gekozen omdat dit de taal is waarin de lessen ook moeten worden ingevoerd in Learning Python. Het rapport dat geschreven is als uitleg van dit project staat ook hier, opgeslagen als _Rapport.pdf_.
+
+Code voor de website cursus op Learning Python is te vinden in <a href="https://github.com/abouscholte/python_website/" target="_blank">de speciale GitHub repository</a>.
