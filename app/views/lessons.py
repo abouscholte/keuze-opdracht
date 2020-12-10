@@ -7,6 +7,9 @@ from app.forms import NewCourseForm, EditLessonForm
 
 lessons = Blueprint('lessons', __name__)
 
+
+# alle lessen, homepagina
+
 @lessons.route('/')
 def index():
   beginnerLessons = Lesson.query.filter_by(course_id=1).all()
@@ -14,15 +17,24 @@ def index():
   
   return render_template('index.html', beginnerLessons=beginnerLessons, websiteLessons=websiteLessons)
 
+
+# beginnerscursus
+
 @lessons.route('/courses/beginners/')
 def beginners():
   lessons = Lesson.query.filter_by(course_id=1).all()
   return render_template('courses/beginners.html', lessons=lessons)
 
+
+# websitecursus
+
 @lessons.route('/courses/website/')
 def website():
   lessons = Lesson.query.filter_by(course_id=2).all()
   return render_template('courses/website.html', lessons=lessons)
+
+
+# een enkele les
 
 @lessons.route('/lessons/lesson-<id>/')
 def lesson(id):
@@ -34,6 +46,9 @@ def lesson(id):
   next = db.session.query(Lesson).order_by(Lesson.id.asc()).filter(Lesson.course_id == lesson.course_id).filter(Lesson.id > lesson.id).first()
 
   return render_template('lessons/lesson.html', lesson=lesson, next=next, previous=previous)
+
+
+# voeg een nieuwe les toe
 
 @lessons.route('/lessons/new/', methods=['GET', 'POST'])
 @login_required
@@ -53,6 +68,9 @@ def new_course():
     return redirect(url_for('lessons.index'))
 
   return render_template('lessons/new.html', form=form)
+
+
+# wijzig lessen
 
 @lessons.route('/lessons/lesson-<id>/edit/', methods=['GET', 'POST'])
 @login_required
@@ -74,6 +92,9 @@ def edit_lesson(id):
     form.body.data = lesson.body
 
   return render_template('lessons/edit.html', lesson=lesson, form=form)
+
+
+# verwijder lessen
 
 @lessons.route('/lessons/lesson-<id>/delete/', methods=['GET', 'POST'])
 @login_required
