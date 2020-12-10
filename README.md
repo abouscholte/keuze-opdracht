@@ -11,4 +11,4 @@ $ export FLASK_ENV=development
 $ flask run
 ```
 
-Lessen zijn uitgeschreven in Markdown in de map _lessen_. Markdown is hiervoor gekozen omdat dit de taal is waarin de lessen ook moeten worden ingevoerd in Learning Python.
+Lessen zijn uitgeschreven in Markdown in de map _lessen_. Markdown is hiervoor gekozen omdat dit de taal is waarin de lessen ook moeten worden ingevoerd in Learning Python. Het rapport dat geschreven is als uitleg van dit project staat ook hier, opgeslagen als _Rapport.pdf_.
