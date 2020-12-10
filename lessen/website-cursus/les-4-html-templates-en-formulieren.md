@@ -71,7 +71,7 @@ Het is verondersteld dat je kennis van HTML goed genoeg is om deze cursus te kun
  &lt;/body&gt;
 &lt;/html&gt;</code></pre>
 
-Er is het css-framework Bootstrap toegevoegd voor wat beter ogende styling, samen met een standaard Bootstrap navigatiebalk met een aantal juiste links. Let ook op de _href_ van deze links. Dit zijn speciale template links die gebruikt kunnen worden in Flask. Ze worden verwezen naar de functienaam zoals we die hebben geschreven in <i>\__init__.py</i>. Ook bij het css bestand dat ik heb toegevoegd is deze soort code toegevoegd. Dit css bestand is <a href="https://github.com/abouscholte/keuze-opdracht/blob/python_website_example/blog/static/main.css" target="_blank">hier, op GitHub</a> te downloaden. 
+Er is het css-framework Bootstrap toegevoegd voor wat beter ogende styling, samen met een standaard Bootstrap navigatiebalk met een aantal juiste links. Let ook op de _href_ van deze links. Dit zijn speciale template links die gebruikt kunnen worden in Flask. Ze worden verwezen naar de functienaam zoals we die hebben geschreven in <i>\__init__.py</i>. Ook bij het css bestand dat ik heb toegevoegd is deze soort code toegevoegd. Dit css bestand is <a href="https://github.com/abouscholte/python_website/blob/master/blog/static/main.css" target="_blank">hier, op GitHub</a> te downloaden. 
 
 Je zult zien dat er nu een foutmelding zal optreden, omdat er al een _url_for_ is toegevoegd voor de route voor de pagina voor het toevoegen van nieuwe posts. Deze pagina bestaat nog niet, dus dat is begrijpelijk.
 
